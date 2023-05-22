@@ -1,4 +1,4 @@
-import { ChangeEvent, Fragment, HTMLInputTypeAttribute } from "react";
+import { Fragment, HTMLInputTypeAttribute } from "react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 const Input = <T extends FieldValues>({
@@ -10,7 +10,6 @@ const Input = <T extends FieldValues>({
   labelText,
   labelHTMLFor,
   labelStyles,
-  value,
   name,
   register,
   isFieldRequired = false,
@@ -23,8 +22,6 @@ const Input = <T extends FieldValues>({
   labelText?: string;
   labelHTMLFor?: string;
   labelStyles?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  value?: any;
   name: Path<T>;
   register: UseFormRegister<T>;
   isFieldRequired: boolean;
@@ -40,13 +37,12 @@ const Input = <T extends FieldValues>({
         </label>
       )}
       <input
-        className={`${styles} p-2 rounded-md border border-primaryLightGray w-80 max-w-full`}
+        className={`p-2 rounded-md border border-primaryLightGray w-80 max-w-full ${styles}`}
         type={type}
         max={max}
         min={min}
         step={step}
         id={labelHTMLFor}
-        value={value}
         {...register(name, {
           required: isFieldRequired,
         })}

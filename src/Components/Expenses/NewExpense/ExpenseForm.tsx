@@ -1,18 +1,21 @@
+import { IExpenses } from "../../../Interfaces/Expenses";
 import Input from "../../Common/Input";
 import { SubmitHandler, useForm } from "react-hook-form";
-interface Inputs {
-  title: string;
-  amount: number;
-  date: string;
-}
-function ExpenseForm() {
+
+function ExpenseForm({
+  onSaveNewExpense,
+}: {
+  onSaveNewExpense: (data: IExpenses) => void;
+}) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (_data) => {
-    console.log(errors);
+    reset,
+  } = useForm<IExpenses>();
+  const onSubmit: SubmitHandler<IExpenses> = (data) => {
+    onSaveNewExpense(data);
+    reset();
   };
 
   return (
@@ -31,7 +34,7 @@ function ExpenseForm() {
           />
         </div>
         <div className="flex flex-col justify-between h-20">
-          <Input<Inputs>
+          <Input<IExpenses>
             isFieldRequired
             labelStyles="font-bold"
             type="number"
