@@ -12,12 +12,13 @@ function ExpenseForm({
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm<IExpenses>();
   const onSubmit: SubmitHandler<IExpenses> = (data) => {
     onSaveNewExpense(data);
     reset();
   };
-
+  console.log(watch("date"));
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-wrap text-left justify-between">

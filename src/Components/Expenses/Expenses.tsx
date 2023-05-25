@@ -10,7 +10,7 @@ function Expenses({ expenses }: { expenses: IExpenses[] }) {
         {expenses.map((expense: IExpenses) => {
           return (
             <Fragment key={expense.id}>
-              <ExpenseItem {...expense} />;
+              <ExpenseItem {...expense} />
             </Fragment>
           );
         })}

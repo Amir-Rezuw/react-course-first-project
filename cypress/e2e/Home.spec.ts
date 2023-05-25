@@ -1,7 +1,7 @@
 import { convertNumericMounthToText } from "../../src/Services/Common/Functions";
 describe("test", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3002");
+    cy.visit("http://localhost:3000");
   });
   it.only("Paragraph content", () => {
     const date = new Date();

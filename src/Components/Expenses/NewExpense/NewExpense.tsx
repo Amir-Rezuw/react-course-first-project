@@ -2,9 +2,10 @@ import ExpenseForm from "./ExpenseForm";
 import { v4 as gidV4 } from "uuid";
 import { IExpenses } from "../../../Interfaces/Expenses";
 function NewExpense({ addExpense }: { addExpense: (data: IExpenses) => void }) {
-  const saveExpenseData = (data: IExpenses) => {
-    const expenseData = {
+  const saveExpenseData = function (data: IExpenses) {
+    const expenseData: IExpenses = {
       ...data,
+      date: new Date(data.date),
       id: gidV4(),
     };
     addExpense(expenseData);

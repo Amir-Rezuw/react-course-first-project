@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import "./App.css";
 
 import { IExpenses } from "./Interfaces/Expenses";
@@ -6,10 +6,10 @@ import Expenses from "./Components/Expenses/Expenses";
 import NewExpense from "./Components/Expenses/NewExpense/NewExpense";
 
 function App() {
-  const expenses: IExpenses[] = [];
+  const [expenses, setExpenses] = useState<IExpenses[]>([]);
+
   const addExpense = (data: IExpenses) => {
-    expenses.push(data);
-    console.log(expenses);
+    setExpenses((pervExpense) => [data, ...pervExpense]);
   };
   return (
     <Fragment>

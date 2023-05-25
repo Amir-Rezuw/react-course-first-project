@@ -1,5 +1,4 @@
 import { convertNumericMounthToText } from "../../Services/Common/Functions";
-
 function ExpenseDate({ date }: { date: Date }) {
   return (
     <div
@@ -22,7 +21,7 @@ function ExpenseDate({ date }: { date: Date }) {
         data-cypress-day-test
         className="text-xl"
       >
-        {date.getDay()}
+        {date.getDate()}
       </b>
     </div>
   );
